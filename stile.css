@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.scritta_bottone{
+    justify-self: center;
+    justify-items: center;
+    text-align: center;
+}
+.botton {
+    justify-self: center;
+    background-color: white;
+    color: #d62828;
+    border: 2px solid white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Aggiunta ombra */
+}
+
+
+.titolo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.padre {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 25px auto 0 auto;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.uno, .due, .tre, .quattro, .cinque{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 300px;
+    border-radius: 1px;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pizza1, .pizza2, .pizza3, .pizza4, .pizza5 {
+    width: 180px;
+    height: 300px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.pizza img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#link {
+    width: 500px; 
+    height: 700px; 
+    display: none;
+    background-color: rgb(134, 197, 204);
+}
+
+#link.visible{
+    display: block;
+}
+
+/* === MEDIA QUERY: Schermi medi e grandi === */
+@media (min-width: 768px) {
+    .padre {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .uno, .due, .tre, .quattro, .cinque {
+        width: 200px;
+        height: 300px;
+    }
+
+}
+
+/* === MEDIA QUERY: Schermi molto grandi === */
+@media (min-width: 1200px) {
+    .padre {
+        width: 80%;
+    }
+
+    .uno, .due, .tre, .quattro, .cinque {
+        width: 250px;
+        height: 350px;
+    }
+
+    .pizza1, .pizza2, .pizza3 , .pizza4, .pizza5 {
+        width: 230px;
+        height: 330px;
+    }
+
+}
