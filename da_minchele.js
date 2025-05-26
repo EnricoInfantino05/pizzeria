@@ -1,7 +1,7 @@
 const menuButton = document.querySelector('.botton'); // Corretto il nome della variabile
 const menuContainer = document.getElementById('link'); // Nome più descrittivo
 
-const menuPizze = [
+var menuPizze = [
   { nome: "Margherita", prezzo: 6.00 },
   { nome: "Diavola", prezzo: 7.50 },
   { nome: "Quattro Formaggi", prezzo: 8.00 },

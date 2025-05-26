@@ -1,112 +1,145 @@
+/* Reset base */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff4e6; /* Beige/arancio chiaro coerente con il tema */
+    color: #000000;
+    min-height: 100vh;
 }
-
-.scritta_bottone{
-    justify-self: center;
-    justify-items: center;
-    text-align: center;
-}
-.botton {
-    justify-self: center;
-    background-color: white;
-    color: #d62828;
-    border: 2px solid white;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Aggiunta ombra */
-}
-
-
+/* Titolo */
 .titolo {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.titolo h1 {
+    color: #ff0000;
+    font-size: 2.8em;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    font-weight: 900;
 }
 
+/* Pulsante Menù */
+.scritta_bottone {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.botton {
+    background: linear-gradient(90deg, #d62828 0%, #f77f00 100%);
+    color: #fff;
+    border: none;
+    padding: 16px 44px;
+    font-size: 1.3em;
+    border-radius: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 16px rgba(214,40,40,0.13);
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.1s;
+    margin-bottom: 10px;
+    outline: none;
+    position: relative;
+    z-index: 2;
+}
+.botton:hover, .botton:focus {
+    background: linear-gradient(90deg, #f77f00 0%, #d62828 100%);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(214,40,40,0.18);
+    transform: translateY(-2px) scale(1.05);
+}
+.botton:active {
+    background: #ff0000;
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(214,40,40,0.18);
+    transform: translateY(1px) scale(0.98);
+}
 
+/* Griglia immagini pizze */
 .padre {
     display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: 25px auto 0 auto;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 50px;
+    align-items: flex-start;
+    gap: 32px;
+    width: 95%;
+    margin: 0 auto 40px auto;
 }
 
-.uno, .due, .tre, .quattro, .cinque{
-    background-color: white;
+.uno, .due, .tre, .quattro, .cinque {
+    background-color: #fff;
     display: flex;
     flex-direction: column;
-    width: 200px;
-    height: 300px;
-    border-radius: 1px;
+    width: 220px;
+    height: 330px;
+    border-radius: 18px;
     margin: 10px;
     justify-content: center;
     align-items: center;
-}
-
-.pizza1, .pizza2, .pizza3, .pizza4, .pizza5 {
-    width: 180px;
-    height: 300px;
-    margin: 10px;
-    overflow: hidden;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.10);
+    /* Rimosso hover per immagini statiche */
 }
 
 .pizza img {
-    width: 100%;
-    height: 100%;
+    width: 185px;
+    height: 265px;
     object-fit: cover;
+    border-radius: 12px;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+    border: 2px solid #ff8400;
+    background: rgb(255, 255, 255);
 }
 
+/* Menù dinamico */
 #link {
-    width: 500px; 
-    height: 700px; 
+    width: 92%;
+    max-width: 520px;
+    margin: 40px auto 40px auto;
+    padding: 32px 24px;
     display: none;
-    background-color: rgb(134, 197, 204);
+    background: #ff0000; /* Sfondo rosso */
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+    font-size: 1.35em;
+    color: rgb(255, 255, 255); /* Testo bianco per contrasto */
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
-
-#link.visible{
+#link.visible {
     display: block;
 }
-
-/* === MEDIA QUERY: Schermi medi e grandi === */
-@media (min-width: 768px) {
-    .padre {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 30px;
-    }
-
-    .uno, .due, .tre, .quattro, .cinque {
-        width: 200px;
-        height: 300px;
-    }
-
+#link p {
+    margin: 18px 0;
+    font-size: 1.18em;
+    color: #ff0000;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 10px;
+    padding: 10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: background 0.2s;
 }
 
-/* === MEDIA QUERY: Schermi molto grandi === */
-@media (min-width: 1200px) {
-    .padre {
-        width: 80%;
-    }
-
-    .uno, .due, .tre, .quattro, .cinque {
-        width: 250px;
-        height: 350px;
-    }
-
-    .pizza1, .pizza2, .pizza3 , .pizza4, .pizza5 {
-        width: 230px;
-        height: 330px;
-    }
-
+/* Responsive */
+@media (max-width: 1500px) {
+    .cinque { display: none; }
+}
+@media (max-width: 1120px) {
+    .quattro { display: none; }
+}
+@media (max-width: 830px) {
+    .tre { display: none; }
+}
+@media (max-width: 600px) {
+    .due { display: none; }
+}
+@media (max-width: 400px) {
+    .uno, .due, .tre, .quattro, .cinque { display: none; }
+    .uno { display: flex; }
 }
