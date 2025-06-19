@@ -1,5 +1,8 @@
-const menuButton = document.querySelector('.botton'); // Corretto il nome della variabile
-const menuContainer = document.getElementById('link'); // Nome più descrittivo
+// ...existing code...
+const menuButton = document.getElementById('menu-btn');
+const menuContainer = document.getElementById('link');
+const chiButton = document.getElementById('chi-btn');
+const chiContainer = document.getElementById('chi');
 
 var menuPizze = [
   { nome: "Margherita", prezzo: 6.00 },
@@ -11,18 +14,38 @@ var menuPizze = [
 
 // Funzione per riempire il menù
 function riempiMenu() {
-  menuContainer.innerHTML = ''; // Svuota il contenitore (div)
+  menuContainer.innerHTML = '';
   menuPizze.forEach(pizza => {
     const pizzaElement = document.createElement('p');
     pizzaElement.textContent = `${pizza.nome}: €${pizza.prezzo.toFixed(2)}`;
-    menuContainer.appendChild(pizzaElement); // Aggiunge l'elemento al contenitore
+    menuContainer.appendChild(pizzaElement);
   });
 }
 
-// Gestione del click sul bottone
+// Funzione per riempire "Chi siamo"
+function riempiChi() {
+  chiContainer.innerHTML = '';
+  const chiText = document.createElement('p');
+  chiText.textContent = "Siamo la pizzeria Da Michele, tradizione e qualità dal 1930. Ingredienti freschi e passione per la vera pizza napoletana!";
+  chiContainer.appendChild(chiText);
+}
+
+// Gestione del click sul bottone Menù
 menuButton.addEventListener('click', () => {
-  menuContainer.classList.toggle('visible'); // Mostra o nasconde il menù
+  menuContainer.classList.toggle('visible');
+  // Nasconde l'altro sezione se visibile
+  chiContainer.classList.remove('visible');
   if (menuContainer.classList.contains('visible')) {
-    riempiMenu(); // Riempie il menù se è visibile
+    riempiMenu();
+  }
+});
+
+// Gestione del click sul bottone Chi siamo
+chiButton.addEventListener('click', () => {
+  chiContainer.classList.toggle('visible');
+  // Nasconde l'altro sezione se visibile
+  menuContainer.classList.remove('visible');
+  if (chiContainer.classList.contains('visible')) {
+    riempiChi();
   }
 });
